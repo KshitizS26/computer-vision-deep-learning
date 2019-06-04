@@ -68,6 +68,6 @@ print("[INFO] Evaluating k-NN classifier...")
 model = KNeighborsClassifier(n_neighbors = args["neighbors"], n_jobs = args["jobs"])
 model.fit(trainX, trainY)
 # classification_report returns a table containing evaluation metrics
-# target_names - optional, names of the class labels
+# target_names - opti onal, names of the class labels
 print(classification_report(testY, model.predict(testX), target_names = le.classes_))
 
