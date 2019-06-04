@@ -1,13 +1,19 @@
-# import the necessary packages
+'''
+simplepreprocessor.py contains SimplePreprocessor class that accepts an input 
+image, resizes it to a fixed dimension, and then returns it.
+
+usage: binded with knn.py
+'''
+
+# import the required packages
+# cv2 - OpenCV binding
 import cv2
 
 class SimplePreprocessor:
 	def __init__(self, width, height, inter = cv2.INTER_AREA):
 		'''
-		store the target image width, height, and interpolation
-		method used when resizing
+		define class constructor requiring two arguments and an optional argument
 
-		width: the target width of our input image after resizing
 		height: the target height of our input image after resizing
 		inter: optional parameter to select interpolation algorithm for resizing
 		'''
@@ -17,10 +23,11 @@ class SimplePreprocessor:
 
 	def preprocess(self, image):
 		'''
-		resize the image to a fixed size, ignoring the aspect ratio
+		resize the input image to a fixed size, ignoring the aspect ratio
 
 		image: input image to preprocess
 		'''
-		return cv2.resize(image, (self.width, self.height), interpolation = self.inter)
+		resized_image = cv2.resize(image, (self.width, self.height), interpolation = self.inter)
+		return resized_image
 
 
