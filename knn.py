@@ -10,7 +10,7 @@ usage: python knn.py [-h] -d DATASET [-k NEIGHBORS] [-j JOBS]
 # KNeighborsClassifier contains the implementation of the k-NN algorithm
 # LabelEncoder converts labels represented as strings to integers 
 # train_test_split creates the training and testing split
-# classification_report helps evaluate the classifier performance using a confusion matrix
+# classification_report helps evaluate the classifier performance through a table
 # paths - grabs the file path to all images in the dataset
 # argparse - accepting command line arguments
 from sklearn.neighbors import KNeighborsClassifier
@@ -67,7 +67,7 @@ trainX, testX, trainY, testY = train_test_split(data, labels, test_size = 0.25, 
 print("[INFO] Evaluating k-NN classifier...")
 model = KNeighborsClassifier(n_neighbors = args["neighbors"], n_jobs = args["jobs"])
 model.fit(trainX, trainY)
-# classification_report returns a confusion matrix
+# classification_report returns a table containing evaluation metrics
 # target_names - optional, names of the class labels
 print(classification_report(testY, model.predict(testX), target_names = le.classes_))
 
