@@ -20,5 +20,3 @@ for (x, target) in zip(X, y):
 	# to console with the input data point
 	pred = p.predict(x)
 	print("[INFO] data {}, ground-truth = {}, pred = {}".format(x, target[0], pred))
-
-
