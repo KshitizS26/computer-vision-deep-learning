@@ -30,7 +30,7 @@ print("[INFO] Training network...")
 # output layer has 10 nodes because there are 10 possible output classes for the digits 0-9
 nn = NeuralNetwork([trainX.shape[1], 32, 16, 10])
 print("[INFO] {}".format(nn))
-epoch_losses = nn.fit(trainX, trainY, epochs = 1)
+epoch_losses = nn.fit(trainX, trainY, epochs = 1000)
 
 # evaluate the network
 print("[INFO] Evaluating network...")
