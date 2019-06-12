@@ -31,12 +31,12 @@ class NeuralNetwork:
 			# neuron's output
 			self.W.append(w/np.sqrt(layers[i]))
 
-			# the last two layers are a special case where the input connections
-			# need a bias term but the output does not
+		# the last two layers are a special case where the input connections
+		# need a bias term but the output does not
 
-			# shape of w: [number of dimensions X number of output nodes]
-			w = np.random.randn(layers[-2] + 1, layers[-1])
-			self.W.append(w/np.sqrt(layers[-2]))
+		# shape of w: [number of dimensions X number of output nodes]
+		w = np.random.randn(layers[-2] + 1, layers[-1])
+		self.W.append(w/np.sqrt(layers[-2]))
 
 	def __repr__(self):
 		# magic method
@@ -67,6 +67,7 @@ class NeuralNetwork:
 		# A is a list that stores the output activations for each layer as data point x
 		# forward propagates through the network
 		A = [np.atleast_2d(x)]
+		# print(A[0].shape)
 
 		# FEEDFORWARD:
 		# loop over the layers in the network
@@ -101,7 +102,6 @@ class NeuralNetwork:
 		# activation function for the output value
 		D = [error * self.sigmoid_deriv(A[-1])]
 		#print("[INFO] Printing delta of output layer...")
-		#print(D)
 
 		# loop over the layers in reverse order (ignoring the last two since we already have takem into account)
 		for layer in np.arange(len(A) - 2, 0, -1):
@@ -193,7 +193,7 @@ class NeuralNetwork:
 				epoch_losses.append(loss)
 
 		return epoch_losses
-		
+'''
 # define 2-2-1 neural network and train it
 # instantiate a NeuralNetwork to have a 2-2-1 architecture --
 # 2 input nodes, single hidden layer with 2 nodes, 1 output node
@@ -204,7 +204,7 @@ print(nn)
 X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
 y = np.array([[0], [1], [1], [0]])
 
-epoch_losses = nn.fit(X, y, epochs = 20000)
+epoch_losses = nn.fit(X, y, epochs = 1)
 
 # after training network, loop over the XOR data points
 for (x, target) in zip(X, y):
@@ -219,7 +219,8 @@ for (x, target) in zip(X, y):
 plt.style.use("ggplot")
 plt.figure()
 plt.plot(np.arange(0, 20100, 100), epoch_losses)
-plt.title("Training Loss")
+plt.title("Training Loss for XOR Dataset")
 plt.xlabel("Epoch #")
 plt.ylabel("Loss")
 plt.show()
+'''
