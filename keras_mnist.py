@@ -16,8 +16,7 @@ from keras.models import Sequential
 from keras.layers.core import Dense
 # SGD contain implementation of stochastic gradient descent
 from keras.optimizers import SGD
-# datasets is a helper function to import datasets
-from sklearn import datasets
+# helper function to automatically load datasets from the disk
 from keras.datasets import mnist
 import matplotlib.pyplot as plt
 import numpy as np
